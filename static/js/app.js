@@ -6,7 +6,7 @@ d3.json(url).then(function(data) {
     console.log(data);
 });
 
-//Initailize the dashboard
+//initailize the dashboard
 function init() {
     let dropdownMenu = d3.select("#selDataset");
   
@@ -108,7 +108,7 @@ function init() {
       // Log the data to the console
       console.log(otu_ids, otu_labels, sample_values);
   
-      // Set up the trace for bubble chart
+      //trace for bubble chart
       let trace1 = {
         x: otu_ids,
         y: sample_values,
@@ -117,10 +117,12 @@ function init() {
         marker: {
           size: sample_values,
           color: otu_ids,
-          colorscale: "Portland",
+          colorscale: "Portland"
         }
     };
-  
+    //was not able to get the displayed bubbles to look like the presented example
+    //using the otu_ids, so put a fun portland color scale on it
+
       // Set up the layout
       let layout = {
         title: "Bacteria Per Sample",
@@ -144,5 +146,5 @@ function init() {
     buildBubbleChart(value);
   };
   
-  // Call the initialize function
+  //initialize
   init();
