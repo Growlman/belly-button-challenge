@@ -23,7 +23,7 @@ function init() {
   
       console.log(sample1);
   
-      //Build the initial plots
+      //build the initial plots
       buildMetadata(sample1);
       buildBarChart(sample1);
       buildBubbleChart(sample1);
@@ -41,14 +41,14 @@ function init() {
   
       d3.select("#sample-metadata").html("");
       Object.entries(valueData).forEach(([key, value]) => {
-        //Log the individual key/value pairs as they are being appended to the metadata panel
+        //log the individual key/value pairs as they are being appended to the metadata panel
         console.log(key, value);
         d3.select("#sample-metadata").append("h5").text(`${key}: ${value}`);
       });
     });
   }
   
-  //Build the bar chart
+  //build the bar chart
   function buildBarChart(sample) {
     d3.json(url).then((data) => {
       let sampleInfo = data.samples;
@@ -70,7 +70,7 @@ function init() {
       
       let labels = otu_labels.slice(0,10).reverse();
   
-      //Set up the trace for the bar chart
+      //set up the trace for the bar chart
       
       let traceB = {
         x: xticks,
@@ -123,14 +123,14 @@ function init() {
     //was not able to get the displayed bubbles to look like the presented example
     //using the otu_ids, so put a fun portland color scale on it
 
-      // Set up the layout
+      //layout
       let layout = {
         title: "Bacteria Per Sample",
         hovermode: "closest",
         xaxis: {title: "OTU ID"},
       };
   
-      // Call Plotly to plot the bubble chart
+      // Plotly to plot the bubble chart
       Plotly.newPlot("bubble", [trace1], layout);
     });
   };
